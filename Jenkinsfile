@@ -53,7 +53,7 @@ pipeline{
                           "files": [
                             {
                               "pattern": "target/*.jar",
-                              "target": "libs-release-local/{1}",
+                              "target": "mydevops2023-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
