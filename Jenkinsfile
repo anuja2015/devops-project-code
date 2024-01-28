@@ -11,8 +11,15 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh 'mvn clean install'
+                echo "---------- build started ----------"
+                    sh 'mvn clean install'
+                echo "---------- build completed ----------"
             }
+        }
+        stage("Test"){
+           echo "---------- unit test started ----------" 
+             sh 'mvn surefire-report:report'
+           echo "---------- unit test completed ----------"
         }
         stage('SonarQube analysis') {
           steps{
@@ -21,5 +28,6 @@ pipeline{
     }
           }
         }
+        
     }
 }
