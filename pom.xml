@@ -89,7 +89,7 @@
 				<version>3.2.5</version>
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
-					<argLine>-Xmx1024m-XX:MaxPermSize=256m</argLine>
+					<argLine>${argLine} -Xmx2048m</argLine>
 				</configuration>
 			</plugin>
 
