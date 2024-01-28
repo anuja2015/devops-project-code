@@ -8,10 +8,10 @@
 		<version>2.2.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mydevops2023</groupId>
-	<artifactId>devops-demo</artifactId>
-	<version>2.1.4</version>
-	<name>devops-demo</name>
+	<groupId>com.valaxy</groupId>
+	<artifactId>demo-workshop</artifactId>
+	<version>2.1.2</version>
+	<name>demo-workshop</name>
 	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 
@@ -115,6 +115,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>master</id>
+			<url>file://jarstaging</url>
+		</repository>
+	</distributionManagement>
 
 	
 </project>
