@@ -8,10 +8,10 @@
 		<version>2.2.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.valaxy</groupId>
-	<artifactId>demo-workshop</artifactId>
+	<groupId>com.mydevops2023</groupId>
+	<artifactId>devops-demo</artifactId>
 	<version>2.1.4</version>
-	<name>demo-workshop</name>
+	<name>devops-demo</name>
 	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 
