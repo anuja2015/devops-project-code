@@ -1,3 +1,4 @@
+def registry = 'https://devopsdecember2023.jfrog.io'
 pipeline{
     agent{
         node{
@@ -42,8 +43,7 @@ pipeline{
             }
         }
        }
-            def registry = 'https://devopsdecember2023.jfrog.io'
-         stage("Jar Publish") {
+        stage("Jar Publish") {
            steps {
              script {
                     echo '<--------------- Jar Publish Started --------------->'
