@@ -11,16 +11,16 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "---------- build started ----------"
+                echo "<---------- build started ---------->"
                     sh 'mvn clean install'
-                echo "---------- build completed ----------"
+                echo "<---------- build completed ---------->"
             }
         }
         stage("Test"){
           steps{
-           echo "---------- unit test started ----------" 
+           echo "<---------- unit test started ---------->" 
              sh 'mvn surefire-report:report'
-           echo "---------- unit test completed ----------"
+           echo "<---------- unit test completed ---------->"
           }
         }
         stage('SonarQube analysis') {
@@ -42,6 +42,32 @@ pipeline{
             }
         }
        }
+            def registry = 'https://devopsdecember2023.jfrog.io'
+         stage("Jar Publish") {
+           steps {
+             script {
+                    echo '<--------------- Jar Publish Started --------------->'
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactory_cred"
+                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
+                     def uploadSpec = """{
+                          "files": [
+                            {
+                              "pattern": "target/*.jar",
+                              "target": "libs-release-local/{1}",
+                              "flat": "false",
+                              "props" : "${properties}",
+                              "exclusions": [ "*.sha1", "*.md5"]
+                            }
+                         ]
+                     }"""
+                     def buildInfo = server.upload(uploadSpec)
+                     buildInfo.env.collect()
+                     server.publishBuildInfo(buildInfo)
+                     echo '<--------------- Jar Publish Ended --------------->'  
+            
+            }
+        }   
+    }   
         
     }
 }
