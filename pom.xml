@@ -117,6 +117,7 @@
 	</build>
 	<distributionManagement>
 		<repository>
+			<id>master</>
 			<url>file://jarstaging</url>
 		</repository>
 	</distributionManagement>
