@@ -52,7 +52,7 @@ pipeline{
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "/var/lib/jenkins/workspace/rend-multibranch-pipeline_master/target/*.jar",
+                              "pattern": "*.jar",
                               "target": "mydevops2023-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
