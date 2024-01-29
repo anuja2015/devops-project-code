@@ -78,16 +78,15 @@ pipeline{
             echo "<----------------Docker build completed -------------->"
           }
       }
-    } 
-
+        } 
         stage("Publish docker to artifactory")
-        steps{
-        script{
-          echo "<----------------Docker publish started ------------------>"
-          docker.withRegistry('registry',"artifactory_cred")
-          app.push 
-          echo "<----------------------- Docker publish completed ----------->"
+          steps{
+            script{
+              echo "<----------------Docker publish started ------------------>"
+              docker.withRegistry('registry',"artifactory_cred")
+              app.push 
+              echo "<----------------------- Docker publish completed ----------->"
+            }
+         }        
         }
-      }        
-    }
 }
