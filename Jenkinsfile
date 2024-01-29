@@ -69,19 +69,19 @@ pipeline{
             
             }
         }   
-    }  
-    stage("Docker Build"){
-      steps{
-        script{
-          echo "<---------------- Docker build started --------------->"
-          app = docker.build("imageName+":"+version")
-          echo "<----------------Docker build completed -------------->"
-        }
+        }  
+        stage("Docker Build"){
+          steps{
+          script{
+            echo "<---------------- Docker build started --------------->"
+            app = docker.build("imageName+":"+version")
+            echo "<----------------Docker build completed -------------->"
+          }
       }
     } 
 
-    stage("Publish docker to artifactory")
-      steps{
+        stage("Publish docker to artifactory")
+        steps{
         script{
           echo "<----------------Docker publish started ------------------>"
           docker.withRegistry('registry',"artifactory_cred")
