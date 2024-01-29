@@ -79,7 +79,7 @@ pipeline{
           }
       }
         } 
-        stage("Publish docker to artifactory")
+        stage("Publish docker to artifactory"){
           steps{
             script{
               echo "<----------------Docker publish started ------------------>"
@@ -89,4 +89,5 @@ pipeline{
             }
          }        
         }
+    }
 }
