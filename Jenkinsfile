@@ -84,7 +84,7 @@ pipeline{
             script{
               echo "<----------------Docker publish started ------------------>"
               docker.withRegistry(registry,'artifactory_cred'){
-              app.push 
+              app.push()
               }
               echo "<--------------------Docker publish completed ----------->"
             }
