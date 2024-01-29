@@ -1,6 +1,6 @@
 def registry = 'https://devopsdecember2023.jfrog.io'
 def imageName = 'devopsdecember2023.jfrog.io/mydevops2023-docker-local/ttrend'
-def version = "2.1.2"
+def version = '2.1.2'
 pipeline{
     agent{
         node{
@@ -72,18 +72,18 @@ pipeline{
         }  
         stage("Docker Build"){
           steps{
-          script{
-            echo "<---------------- Docker build started --------------->"
-            app = docker.build("imageName+":"+version")
-            echo "<----------------Docker build completed -------------->"
-          }
+            script{
+              echo "<---------------- Docker build started --------------->"
+              app = docker.build(imageName+":"+version)
+              echo "<----------------Docker build completed -------------->"
+            }
       }
         } 
         stage("Publish docker to artifactory"){
           steps{
             script{
               echo "<----------------Docker publish started ------------------>"
-              docker.withRegistry('registry',"artifactory_cred")
+              docker.withRegistry(registry,'artifactory_cred')
               app.push 
               echo "<----------------------- Docker publish completed ----------->"
             }
