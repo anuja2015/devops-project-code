@@ -90,5 +90,14 @@ pipeline{
             }
          }        
         }
+        stage("Deploy to K8s"){
+          steps{
+            script{
+              echo "<---------------Deploying to K8s-------------->"
+              sh './deploy.sh'
+              echo "<---------------deployment completed----------->"
+            }
+          }
+        }
     }
 }

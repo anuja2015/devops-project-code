@@ -4,7 +4,7 @@ metadata:
   name:  mydevops-rtp-service
   namespace: mydevops2023
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: mydevops-rtp
   ports:
